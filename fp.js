@@ -25,7 +25,49 @@
          :Object.prototype.toString.call(a) == "[object Object]";
  }
 
-
+ function setVal(div,val){
+    div.attr("value",val);
+ }
+ function setAttr(name,value,div){
+    return div.attr(name,value);
+ }
+ function addClass(clazz,div){
+    return div.addClass(clazz);
+ }
+ function removeClass(clazz,div){
+    return div.removeClass(clazz);
+ }
+ function jqis(selector,div){
+    return div.is(selector);
+ }
+ function show(div){
+    return div.show();
+ }
+ function hide(div){
+    return div.hide();
+ }
+ function cbk(div,fn){
+    return function(){
+        fn(div);
+    }
+ }
+ function jq(fn){
+    return function(){
+        var div=$(this);
+        fn(div);
+    }
+ }
+ function find(selector,div){
+    return div.find(selector);
+ }
+ function attr(name,div){
+    return div.attr(name);
+ }
+ function attrs(names,div){
+    return map(function(name){
+        return div.attr(name);
+    },names);
+ }
 
 
 
