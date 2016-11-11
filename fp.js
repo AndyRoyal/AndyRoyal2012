@@ -163,3 +163,18 @@
         return a == null ? false
             :Object.prototype.toString.call(a) == "[object Date]";
     }
+
+    // void 与typeof
+    // void 操作符用法格式如下：
+    //1. javascript:void (expression)
+    //2. javascript:void expression
+    //void() 是运算符，对任何值都返回undefined;
+    //void([]) 和 void []  是一样的 两种调用方式，这也正是和typeof的相似之处。
+    // void function main(){}; 申明此函数返回的是 undefined; 没有 return 的函数默认也是返回 undefined ;所以没有写的必要,也上是为了语义化.
+    //  链接的形式也可是: javascript:void '' , javascript:void "1" , javascript:undefined ,javascript:;  ,  javascript:
+    //  
+    //   function(){}(); 会运行错误, 如下可以正确被运行
+    //   
+    //   void function(){
+    //        alert(1)
+    //    }()
