@@ -175,14 +175,27 @@
         if (true) {};
    
     };
-    //参数传递
+    //参数传递不了 参数和变量的区别
     function transmitArg(len){
-        return function(len){
-    
+        var  len = arguments;
+        return function(len){ //参数若想传递只能通过变量，
+        //参数仅限于当时函数使用，
+        //闭包中，变量采取就近原则
             console.log("arguments-------"+len);
-    
-    
         }
-    }
-    
-    //
+    };
+    transmitArg(123)(456);
+    console.log(len);
+//456
+//123
+
+  function transmitArg(len){
+       var  len = arguments;
+          return function(len1){
+              console.log("arguments-------"+len);
+          }
+      }
+      transmitArg(123)(456);
+      console.log(len);
+ //arguments-------[object Arguments] 
+// [123]
