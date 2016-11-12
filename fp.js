@@ -133,17 +133,6 @@
     return curryN(fn.length,fn);
  }
 
-
-
-
-
-
-
-
-
-
-
-
  // scope function
     function isarray(a){
         return a == null ? false
@@ -178,3 +167,22 @@
     //   void function(){
     //        alert(1)
     //    }()
+    //    
+    
+    //match 
+    function modelmatch(a){
+        var args= arguments;
+        if (true) {};
+   
+    };
+    //参数传递
+    function transmitArg(len){
+        return function(len){
+    
+            console.log("arguments-------"+len);
+    
+    
+        }
+    }
+    
+    //
