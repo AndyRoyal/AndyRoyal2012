@@ -227,7 +227,10 @@ function a(b,c,d){
 a(1,2,3)
 //6
 //
-//JS中如何获取函数传入参数
+//JS中如何获取函数传入参数[形参]
+var test = function(a, b, c) {
+    return a + b + c;
+};
 function getParameterNames(fn) {
   if(typeof fn !== 'function') return [];
   var COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
@@ -238,4 +241,12 @@ function getParameterNames(fn) {
     ? []
     : result;
 }
+test(11,22,33);
 console.log(getParameterNames(test)); // ['a', 'b', 'c']
+
+// JS中如何获取函数传入参数[实参]
+function getParams(a,b,c){
+    return [a,b,c]
+};
+getParams(1,2,3);//[1, 2, 3]
+
