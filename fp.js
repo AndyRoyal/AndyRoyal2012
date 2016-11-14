@@ -213,8 +213,46 @@
 
       //arguments-------123
       //len is not defined   
-//函数的参数传递
+//函数的参数与内部变量同名时
+function transfer(p1,p2){
+    console.log(p2);//2
+    return function fn1(p11){
+        console.log(p2);//2
+        console.info(p1);//1
+        return function fn2(p2){
+            console.info(p2);//undefined
+        };
+    };
+    function fn3(){
+        return " ";
+    }
+};
+transfer(1,2)()();//2 2 1 undefined
+function transfer(p1,p2){
+    var p1=arguments[0];//1
+    var p2=arguments[1];//2
+    console.log(p2);
+    return function fn1(p11){
+        console.log(p2);//2
+        console.info(p1);//1
+        return function fn2(p2){
+            console.info(p2);//undefined
+        };
+    };
+    function fn3(){
+        return " ";
+    }
+};
+transfer(1,2)()();//2 2 1 undefined 
+fn1(); fn2(); fn3();//not defined
 //
+
+
+
+
+
+
+
 var test = function(a, b, c) {
     return a + b + c;
 };
@@ -228,8 +266,8 @@ a(1,2,3)
 //6
 //
 //JS中如何获取函数传入参数[形参]
-var test = function(a, b, c) {
-    return a + b + c;
+var test = function(a ,   bc  , c) {
+    return a + bc + c;
 };
 function getParameterNames(fn) {
   if(typeof fn !== 'function') return [];
@@ -242,7 +280,7 @@ function getParameterNames(fn) {
     : result;
 }
 test(11,22,33);
-console.log(getParameterNames(test)); // ['a', 'b', 'c']
+console.log(getParameterNames(test)); // ["a", "bc", "c"]
 
 // JS中如何获取函数传入参数[实参]
 function getParams(a,b,c){
@@ -250,3 +288,11 @@ function getParams(a,b,c){
 };
 getParams(1,2,3);//[1, 2, 3]
 
+"0       hello".indexOf("hello 2")
+//-1
+"0       hello 2".indexOf("hello 2")
+//8
+"0       hello 2".indexOf("hello 2 3")
+//-1
+"0       hello 2 3".indexOf("hello 2 3")
+//8
