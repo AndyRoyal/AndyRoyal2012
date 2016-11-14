@@ -199,3 +199,43 @@
       console.log(len);
  //arguments-------[object Arguments] 
 // [123]
+
+
+
+  function transmitArg(len){
+       var  len = arguments[0];
+          return function(len1){
+              console.log("arguments-------"+len);
+          }
+      }
+      transmitArg(123)(456);
+      console.log(len);
+
+      //arguments-------123
+      //len is not defined   
+//函数的参数传递
+//
+var test = function(a, b, c) {
+    return a + b + c;
+};
+//
+//test(1,2,3)
+//6
+function a(b,c,d){
+ return b+c+d;
+}
+a(1,2,3)
+//6
+//
+//JS中如何获取函数传入参数
+function getParameterNames(fn) {
+  if(typeof fn !== 'function') return [];
+  var COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
+  var code = fn.toString().replace(COMMENTS, '');
+  var result = code.slice(code.indexOf('(') + 1, code.indexOf(')'))
+    .match(/([^\s,]+)/g);
+  return result === null
+    ? []
+    : result;
+}
+console.log(getParameterNames(test)); // ['a', 'b', 'c']
