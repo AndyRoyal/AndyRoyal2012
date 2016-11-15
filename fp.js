@@ -296,3 +296,19 @@ getParams(1,2,3);//[1, 2, 3]
 //-1
 "0       hello 2 3".indexOf("hello 2 3")
 //8
+
+"get   ssl                           ".match(/([^\s,]+)/g);
+//["get", "ssl"]
+
+
+//字符串转数组 包含去除空格
+function sta(s){
+    return s.match(/([^\s,]+)/g);
+};
+sta("bbb,cc, dfd  , df");
+//字符串转数组 
+"bbb,cc, dfd  , df".split(",")
+//["bbb", "cc", " dfd  ", " df"]
+
+
+
